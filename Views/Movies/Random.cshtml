@@ -1,9 +1,28 @@
-﻿@model Vidly.Models.Movie
+﻿@model Vidly.ViewModels.RandomMovieVewModel
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*
+   This is a multiline comment
+*@
 
-<h2>@(ViewBag.Movie)</h2>
+@{ 
+    var classname = Model.Customers.Count > 0  ? "popular" : null;
+}
 
+<h2 class="@classname">@Model.Movie.Name</h2>
+@if (Model.Customers.Count == 0)
+{
+    <text>No one has rented this movie before</text>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
