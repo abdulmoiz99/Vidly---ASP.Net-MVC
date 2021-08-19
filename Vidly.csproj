@@ -130,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -154,6 +155,14 @@
     <Compile Include="Migrations\202108191332200_PopulateMembershipType.cs" />
     <Compile Include="Migrations\202108191332200_PopulateMembershipType.designer.cs">
       <DependentUpon>202108191332200_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108191354113_ApplyAnotationToCustomerName.cs" />
+    <Compile Include="Migrations\202108191354113_ApplyAnotationToCustomerName.designer.cs">
+      <DependentUpon>202108191354113_ApplyAnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108191355159_CustomerTableAddedToDbSet.cs" />
+    <Compile Include="Migrations\202108191355159_CustomerTableAddedToDbSet.designer.cs">
+      <DependentUpon>202108191355159_CustomerTableAddedToDbSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -202,6 +211,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108191332200_PopulateMembershipType.resx">
       <DependentUpon>202108191332200_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108191354113_ApplyAnotationToCustomerName.resx">
+      <DependentUpon>202108191354113_ApplyAnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108191355159_CustomerTableAddedToDbSet.resx">
+      <DependentUpon>202108191355159_CustomerTableAddedToDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
