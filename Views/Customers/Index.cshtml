@@ -4,7 +4,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div>
+    <br />
+    <h2>Customers</h2>
 
-
-
-
+    <table id="customers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = 1 })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
