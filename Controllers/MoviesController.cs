@@ -1,51 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+        private dbContext _context;
+
+        public MoviesController()
         {
-            var movie = new Movie() { Name = "Shrek" };
-            var customers = new List<Customer>
-            {
-                new Customer{Name = "Customer 1"},
-                new Customer{Name = "Customer 2"}
-            };
-
-            var viewModel = new RandomMovieVewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
+            _context = new dbContext();
         }
-
-        public ActionResult Edit(int Id)
+        protected override void Dispose(bool disposing)
         {
-            return Content("Id =" + Id);
+            _context.Dispose();
         }
-        public ActionResult Index(int? pageIndex, string sortBy)
+        // GET: Movies
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
+            var moveies = _context.Movies.Include(c => c.Genre).ToList();
+            return View(moveies);
+        }
+        public ActionResult Details(int Id)
+        {
+            var moveies = _context.Movies.SingleOrDefault(x => x.Id == Id);
+            if (moveies == null)
             {
-                pageIndex = 1;
+                return HttpNotFound();
             }
-            if (string.IsNullOrWhiteSpace(sortBy))
+            else
             {
-                sortBy = "Name";
+                return View(moveies);
             }
-            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
         }
-
         [Route("movies/released/{year}/{month}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
