@@ -27,6 +27,10 @@ namespace Vidly.Controllers
 
             return View(customer);
         }
+        public  ActionResult New()
+        {
+            return View();
+        }
         public ActionResult Details(int Id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == Id);
