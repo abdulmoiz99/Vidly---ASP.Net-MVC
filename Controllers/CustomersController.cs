@@ -37,6 +37,10 @@ namespace Vidly.Controllers
             };
             return View(ViewModel);
         }
+        public ActionResult Create(Customer customer)
+        {
+            return View();
+        }
         public ActionResult Details(int Id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == Id);
@@ -50,6 +54,5 @@ namespace Vidly.Controllers
                 return View(customer);
             }
         }
-
     }
 }
