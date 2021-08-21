@@ -13,8 +13,8 @@
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.BirthDate)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        <label for="BirthDate">Date of Birth</label>
+        @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
     </div>
     <div class="checkbox">
         <label>
