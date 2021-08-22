@@ -31,15 +31,17 @@ namespace Vidly.Controllers
         public ActionResult New()
         {
             var membershipType = _context.MembershipTypes.ToList();
-            var ViewModel = new NewCustomerViewModel
+            var ViewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipType
             };
-            return View(ViewModel);
+            return View("CustomerForm", ViewModel);
         }
         public ActionResult Create(Customer customer)
         {
-            return View();
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
         }
         public ActionResult Details(int Id)
         {
@@ -53,6 +55,20 @@ namespace Vidly.Controllers
             {
                 return View(customer);
             }
+        }
+        public ActionResult Edit(int Id)
+        {
+            var customer = _context.Customers.Single(c => c.Id == Id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
         }
     }
 }
