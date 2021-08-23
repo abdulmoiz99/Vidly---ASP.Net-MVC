@@ -11,7 +11,6 @@ namespace Vidly.Models
         [Display(Name = "Genre")]
         public int Id { get; set; }
 
-        [Required]
         [MaxLength(255)]
         public string Name { get; set; }
     }
