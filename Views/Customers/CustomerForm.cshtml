@@ -30,7 +30,7 @@
             @Html.CheckBoxFor(m => m.Customer.IsSubscribeToNewsLetter, new { @class = "Checkbox" }) Subscribed to Newsletter?
         </label>
     </div>
-
+    @Html.AntiForgeryToken();
     @Html.HiddenFor(m => m.Customer.Id);
     <button type="submit" class="btn btn-primary">Save</button>
 
@@ -38,7 +38,8 @@
 
 
 
-@section scripts
+@//for client side verification
+@*@section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
