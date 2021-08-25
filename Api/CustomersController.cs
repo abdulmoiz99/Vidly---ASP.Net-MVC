@@ -15,12 +15,13 @@ namespace Vidly.Api
         {
             _context = new dbContext();
         }
-        //GET /api/customers
+        
+         //GET /api/customers
         public IEnumerable<Customer> GetCustomers()
         {
             return _context.Customers.ToList();
         }
-
+        
         // Get /api/customers/1
         public Customer GetCustomer(int id)
         {
