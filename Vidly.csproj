@@ -223,6 +223,10 @@
     <Compile Include="Migrations\202108231212211_GenreUpdated.designer.cs">
       <DependentUpon>202108231212211_GenreUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108250642410_customerUpdated.cs" />
+    <Compile Include="Migrations\202108250642410_customerUpdated.designer.cs">
+      <DependentUpon>202108250642410_customerUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\dbContext.cs" />
@@ -355,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108231212211_GenreUpdated.resx">
       <DependentUpon>202108231212211_GenreUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250642410_customerUpdated.resx">
+      <DependentUpon>202108250642410_customerUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
