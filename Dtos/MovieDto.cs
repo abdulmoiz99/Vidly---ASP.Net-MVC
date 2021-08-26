@@ -20,7 +20,6 @@ namespace Vidly.Dtos
 
         public DateTime ReleaseDate { get; set; }
 
-       // [MinStockCheck]
         public int NumberInStock { get; set; }
     }
 }

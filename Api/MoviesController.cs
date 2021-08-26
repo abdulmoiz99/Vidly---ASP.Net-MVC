@@ -54,31 +54,34 @@ namespace Vidly.Api
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), MovieDto);
         }
         [HttpPut]
-        public void UpdateMovie(int id, MovieDto movieDto)
+        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
             var movieInDb = _context.Movies.Single(c => c.Id == id);
-            if (!ModelState.IsValid)
+            if (movieInDb==null)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return NotFound();
+
             }
             Mapper.Map(movieDto, movieInDb);
             _context.SaveChanges();
+            return Ok();
         }
 
         [HttpDelete]
-        public void DeleteMoive(int id)
+        public IHttpActionResult DeleteMoive(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return NotFound();
             }
             _context.Movies.Remove(movieInDb);
             _context.SaveChanges();
+            return Ok();
         }
     }
 }

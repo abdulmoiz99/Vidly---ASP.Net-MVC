@@ -53,19 +53,21 @@ namespace Vidly.Api
         }
 
         // PUT /api/customers/1
-        public void UpdateCustomer(int id,CustomerDto CustomerDto)
+        [HttpPut]
+        public IHttpActionResult UpdateCustomer(int id,CustomerDto CustomerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return NotFound();
             }
             Mapper.Map(CustomerDto, customerInDb);
             _context.SaveChanges();
+            return Ok();
         }
 
         // DELETE /api/customers/1
