@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CustomersController.cs" />
+    <Compile Include="Api\MoviesController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingProfile.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +233,18 @@
     <Compile Include="Migrations\202108250642410_customerUpdated.cs" />
     <Compile Include="Migrations\202108250642410_customerUpdated.designer.cs">
       <DependentUpon>202108250642410_customerUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260558586_MoviesTableUpdated.cs" />
+    <Compile Include="Migrations\202108260558586_MoviesTableUpdated.designer.cs">
+      <DependentUpon>202108260558586_MoviesTableUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260734193_MoviesTableUpdated1.cs" />
+    <Compile Include="Migrations\202108260734193_MoviesTableUpdated1.designer.cs">
+      <DependentUpon>202108260734193_MoviesTableUpdated1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260757311_MoviesTableUpdated2.cs" />
+    <Compile Include="Migrations\202108260757311_MoviesTableUpdated2.designer.cs">
+      <DependentUpon>202108260757311_MoviesTableUpdated2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -367,6 +381,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108250642410_customerUpdated.resx">
       <DependentUpon>202108250642410_customerUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260558586_MoviesTableUpdated.resx">
+      <DependentUpon>202108260558586_MoviesTableUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260734193_MoviesTableUpdated1.resx">
+      <DependentUpon>202108260734193_MoviesTableUpdated1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260757311_MoviesTableUpdated2.resx">
+      <DependentUpon>202108260757311_MoviesTableUpdated2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

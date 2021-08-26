@@ -9,7 +9,7 @@ namespace Vidly.Models
     public class Genre
     {
         [Display(Name = "Genre")]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
         [MaxLength(255)]
         public string Name { get; set; }

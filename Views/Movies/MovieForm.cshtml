@@ -24,7 +24,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Genre.Id)
-        @Html.DropDownListFor(m => m.Movie.Genre.Id, new SelectList(Model.Genres, "id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Movie.GenreID, new SelectList(Model.Genres, "id", "Name"), "Select Genre", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Movie.Genre.Id)
     </div>
 

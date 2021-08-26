@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Vidly.Models;
 
-namespace Vidly.Models
+namespace Vidly.Dtos
 {
-    public class Movie
+    public class MovieDto
     {
         public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        public Genre Genre { get; set; }
-        public byte GenreID { get; set; }
+        public int Genre_ID { get; set; }
 
         public DateTime DateAdded { get; set; }
 
-        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        [MinStockCheck]
-        [Display(Name = "Nummber In Stock")]
+       // [MinStockCheck]
         public int NumberInStock { get; set; }
     }
 }
