@@ -17,7 +17,7 @@ namespace Vidly.Api
         {
             _context = new dbContext();
         }
-       
+
         //GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
@@ -35,23 +35,8 @@ namespace Vidly.Api
             }
             return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
-        //[HttpPost]
-        //public IHttpActionResult CreateMovie(MovieDto movieDto)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    var movie = Mapper.Map<MovieDto, Movie>(movieDto);
-        //    _context.Movies.Add(movie);
-        //    _context.SaveChanges();
 
-        //    movieDto.Id = movie.Id;
-        //    return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
-        //}
-
-
-        // POST /api/customers
+        // POST /api/moveis
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto MovieDto)
         {
@@ -67,6 +52,33 @@ namespace Vidly.Api
             MovieDto.Id = movie.Id;
 
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), MovieDto);
+        }
+        [HttpPut]
+        public void UpdateMovie(int id, MovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            var movieInDb = _context.Movies.Single(c => c.Id == id);
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            Mapper.Map(movieDto, movieInDb);
+            _context.SaveChanges();
+        }
+
+        [HttpDelete]
+        public void DeleteMoive(int id)
+        {
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            _context.Movies.Remove(movieInDb);
+            _context.SaveChanges();
         }
     }
 }
